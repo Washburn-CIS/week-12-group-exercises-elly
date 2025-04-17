@@ -51,9 +51,14 @@ public class BankApp {
                     System.out.print("Enter account number: ");
                     int id = input.nextInt();
                     System.out.print("Enter amount: ");
-                    double amount = input.nextDouble();
-                    accounts[id-1].deposit(amount);
-                    System.out.println("done");
+                    try {
+                        double amount = input.nextDouble();
+                        accounts[id-1].deposit(amount);
+                        System.out.println("done");
+                    } catch (InputMismatchException e) {
+                        System.out.println("Not a valid deposit");
+                        input.nextLine();
+                    }
                     break;
                 }
                 case 3:{
